@@ -1,0 +1,32 @@
+{
+  "overrides": [
+    {
+      "files": ["*.ts?(x)"],
+      "parserOptions": {
+        "tsconfigRootDir": "playwright/",
+        "project": "./tsconfig.json"
+      },
+      "extends": [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:playwright/recommended"
+      ],
+      "rules": {
+        "no-shadow": "off",
+        "no-process-env": "off",
+        "playwright/expect-expect": "off",
+        "playwright/no-unsafe-references": "off", // it's a useful feature but it doesn't work. It requires investigation on why. It's disabled because it breaks the tests
+        "@typescript-eslint/no-shadow": "off",
+        "@typescript-eslint/no-unsafe-argument": "off", // Recommended: error
+        "@typescript-eslint/no-unsafe-assignment": "off", // Recommended: error
+        "@typescript-eslint/no-unsafe-call": "off", // Recommended: error
+        "@typescript-eslint/no-unsafe-member-access": "off", // Recommended: error
+        "@typescript-eslint/no-unsafe-return": "off", // Recommended: error
+        "@typescript-eslint/unbound-method": "off", // Recommended: "error"
+        "@typescript-eslint/restrict-template-expressions": [
+          "warn", // Recommended: error
+          { "allowNumber": true }
+        ]
+      }
+    }
+  ]
+}
