@@ -1,6 +1,4 @@
-import { defineConfig } from '@playwright/test';
-
-export default defineConfig({
+export default {
   testDir: './tests',
   /* Maximum time one test can run for. */
   timeout: 160 * 1000,
@@ -23,7 +21,7 @@ export default defineConfig({
   use: {
     // Maximum time each action such as `click()` can take. Defaults to 0 (no limit).
     actionTimeout: 20 * 1000,
-    baseURL: '',
+    baseURL: 'http://localhost:5173',
     browserName: 'chromium',
     headless: true,
     testIdAttribute: 'data-auto-id',
@@ -34,8 +32,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
-  testMatch: ['*.spec.ts'],
-  /* Configure projects for major browsers */
+  testMatch: ['**/*.spec.ts'], // Updated pattern to include subdirectories
   projects: [
     {
       name: 'Chromium',
@@ -79,4 +76,4 @@ export default defineConfig({
   ],
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   outputDir: 'test-results/',
-});
+};
