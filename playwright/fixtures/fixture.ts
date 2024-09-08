@@ -1,17 +1,31 @@
 import { test as baseTest } from '@playwright/test';
-import { QuestionAnswerPage } from '../page-objects/question-answer-page';
-import { QuestionAnswerBuilder } from '../utils/question-answer-builder';
+
 import { Fixtures } from '../custom-types/common-types';
+import { HomePage } from '../page-objects/HomePage';
+import { CartPage } from '../page-objects/CartPage';
+import { MenuPage } from '../page-objects/MenuPage';
+import { OrderPage } from '../page-objects/OrderPage';
+import { OrderFormPage } from '../page-objects/OrderFormPage';
 
 export const test = baseTest.extend<Fixtures>({
-  questionAnswerPage: async ({ page }, use) => {
-    const questionAnswerPage = new QuestionAnswerPage(page);
-    await use(questionAnswerPage);
+  homePage: async ({ page }, use) => {
+    const homePage = new HomePage(page);
+    await use(homePage);
   },
-
-  // eslint-disable-next-line no-empty-pattern
-  questionAnswerBuilder: async ({}, use) => {
-    const questionAnswerBuilder = new QuestionAnswerBuilder();
-    await use(questionAnswerBuilder);
+  cartPage: async ({ page }, use) => {
+    const cartPage = new CartPage(page);
+    await use(cartPage);
+  },
+  menuPage: async ({ page }, use) => {
+    const menuPage = new MenuPage(page);
+    await use(menuPage);
+  },
+  orderPage: async ({ page }, use) => {
+    const orderPage = new OrderPage(page);
+    await use(orderPage);
+  },
+  orderFormPage: async ({ page }, use) => {
+    const orderFormPage = new OrderFormPage(page);
+    await use(orderFormPage);
   },
 });

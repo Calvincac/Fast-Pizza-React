@@ -8,13 +8,15 @@ function UpdateItemQuantity({ pizzaId, currentQuantity }) {
   return (
     <div className="flex items-center gap-2 md:gap-3">
       <Button
+        data-auto-id="decrease-quantity"
         type="round"
         onClick={() => dispatch(decreaseItemQuantity(pizzaId))}
       >
         -
       </Button>
-      <span className="text-sm font-medium">{currentQuantity}</span>
+      <span data-auto-id="current-quantity" className="text-sm font-medium">{currentQuantity}</span>
       <Button
+        data-auto-id="increase-quantity"
         type="round"
         onClick={() => dispatch(increaseItemQuantity(pizzaId))}
       >

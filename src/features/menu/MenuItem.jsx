@@ -32,15 +32,15 @@ function MenuItem({ pizza }) {
         className={`h-24 ${soldOut ? 'opacity-70 grayscale' : ''}`}
       />
       <div className="flex grow flex-col pt-0.5">
-        <p className="font-medium">{name}</p>
-        <p className="text-sm capitalize italic text-stone-500">
+        <p data-auto-id="pizza-name" className="font-medium">{name}</p>
+        <p data-auto-id="pizza-ingradients" className="text-sm capitalize italic text-stone-500">
           {ingredients.join(', ')}
         </p>
         <div className="mt-auto flex items-center justify-between">
           {!soldOut ? (
-            <p className="text-sm">{formatCurrency(unitPrice)}</p>
+            <p data-auto-id="pizza-price" className="text-sm">{formatCurrency(unitPrice)}</p>
           ) : (
-            <p className="text-sm font-medium uppercase text-stone-500">
+            <p data-auto-id="sold-out-pizza-price" className="text-sm font-medium uppercase text-stone-500">
               Sold out
             </p>
           )}
@@ -51,12 +51,12 @@ function MenuItem({ pizza }) {
                 pizzaId={id}
                 currentQuantity={currentQuantity}
               />
-              <DeleteItem pizzaId={id} />
+              <DeleteItem data-auto-id="delete-item" pizzaId={id} />
             </div>
           )}
 
           {!soldOut && !isInCart && (
-            <Button type="small" onClick={handleAddToCart}>
+            <Button data-auto-id="add-to-cart" type="small" onClick={handleAddToCart}>
               Add to cart
             </Button>
           )}

@@ -19,11 +19,12 @@ function CreateUser() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p className="mb-4 text-sm text-stone-600 md:text-base">
+      <p className="mb-4 text-sm text-stone-600 md:text-base" data-auto-id="welcome-message">
         👋 Welcome! Please start by telling us your name:
       </p>
 
       <input
+        data-auto-id="username"
         type="text"
         placeholder="Your full name"
         value={username}
@@ -33,7 +34,7 @@ function CreateUser() {
 
       {username !== '' && (
         <div>
-          <Button type="primary">Start ordering</Button>
+          <Button type="primary" data-auto-id="start-order">Start ordering</Button>
         </div>
       )}
     </form>

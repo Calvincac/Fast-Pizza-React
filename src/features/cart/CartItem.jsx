@@ -15,13 +15,14 @@ function CartItem({ item }) {
         {quantity}&times; {name}
       </p>
       <div className="flex items-center justify-between sm:gap-6">
-        <p className="text-sm font-bold">{formatCurrency(totalPrice)}</p>
+        <p data-auto-id="total-price" className="text-sm font-bold">{formatCurrency(totalPrice)}</p>
 
         <UpdateItemQuantity
+          data-auto-id="update-cart-item"
           pizzaId={pizzaId}
           currentQuantity={currentQuantity}
         />
-        <DeleteItem pizzaId={pizzaId} />
+        <DeleteItem data-auto-id="delete-cart-item" pizzaId={pizzaId} />
       </div>
     </li>
   );
