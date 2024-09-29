@@ -2,68 +2,61 @@ import { Page, Locator } from '@playwright/test';
 
 export class OrderPage {
   private page: Page;
-  private orderId: Locator;
-  private priorityLabel: Locator;
-  private orderStatus: Locator;
-  private orderEta: Locator;
-  private itemQuantity: Locator;
-  private itemTotalPrice: Locator;
-  private orderIngredients: Locator;
-  private pizzaPrice: Locator;
-  private priorityPrice: Locator;
-  private totalOrderPrice: Locator;
+
+  private selectors = {
+    orderId: 'order-id',
+    priorityLabel: 'priority-label',
+    orderStatus: 'order-status',
+    orderEta: 'order-eta',
+    itemQuantity: 'item-quantity',
+    itemTotalPrice: 'item-total-price',
+    orderIngredients: 'order-ingredients',
+    pizzaPrice: 'pizza-price',
+    priorityPrice: 'priority-price',
+    totalOrderPrice: 'total-order-price',
+  };
 
   constructor(page: Page) {
     this.page = page;
-    this.orderId = page.getByTestId('order-id');
-    this.priorityLabel = page.getByTestId('priority-label');
-    this.orderStatus = page.getByTestId('order-status');
-    this.orderEta = page.getByTestId('order-eta');
-    this.itemQuantity = page.getByTestId('item-quantity');
-    this.itemTotalPrice = page.getByTestId('item-total-price');
-    this.orderIngredients = page.getByTestId('order-ingredients');
-    this.pizzaPrice = page.getByTestId('pizza-price');
-    this.priorityPrice = page.getByTestId('priority-price');
-    this.totalOrderPrice = page.getByTestId('total-order-price');
   }
 
-  async getOrderIdText(): Promise<string | null> {
-    return await this.orderId.textContent();
+  get orderId() {
+    return this.page.getByTestId(this.selectors.orderId);
   }
 
-  async getPriorityLabelText(): Promise<string | null> {
-    return await this.priorityLabel.textContent();
+  get priorityLabel() {
+    return this.page.getByTestId(this.selectors.priorityLabel);
   }
 
-  async getOrderStatusText(): Promise<string | null> {
-    return await this.orderStatus.textContent();
+  get orderStatus() {
+    return this.page.getByTestId(this.selectors.orderStatus);
   }
 
-  async getOrderEtaText(): Promise<string | null> {
-    return await this.orderEta.textContent();
+  get orderEta() {
+    return this.page.getByTestId(this.selectors.orderEta);
   }
 
-  async getItemQuantityText(): Promise<string | null> {
-    return await this.itemQuantity.textContent();
+  get itemQuantity() {
+    return this.page.getByTestId(this.selectors.itemQuantity);
   }
 
-  async getItemTotalPriceText(): Promise<string | null> {
-    return await this.itemTotalPrice.textContent();
+  get itemTotalPrice() {
+    return this.page.getByTestId(this.selectors.itemTotalPrice);
   }
 
-  async getOrderIngredientsText(): Promise<string | null> {
-    return await this.orderIngredients.textContent();
+  get orderIngredients() {
+    return this.page.getByTestId(this.selectors.orderIngredients);
   }
 
-  async getPizzaPriceText(): Promise<string | null> {
-    return await this.pizzaPrice.textContent();
+  get pizzaPrice() {
+    return this.page.getByTestId(this.selectors.pizzaPrice);
   }
 
-  async getPriorityPriceText(): Promise<string | null> {
-    return await this.priorityPrice.textContent();
+  get priorityPrice() {
+    return this.page.getByTestId(this.selectors.priorityPrice);
   }
 
-  async getTotalOrderPriceText(): Promise<string | null> {
-    return await this.totalOrderPrice.textContent();
+  get totalOrderPrice() {
+    return this.page.getByTestId(this.selectors.totalOrderPrice);
   }
 }

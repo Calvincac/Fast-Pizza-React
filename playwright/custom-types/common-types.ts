@@ -1,3 +1,4 @@
+import FastPizzaMocks from '../mocks/FastPizzaMocks';
 import { CartPage } from '../page-objects/CartPage';
 import { HomePage } from '../page-objects/HomePage';
 import { MenuPage } from '../page-objects/MenuPage';
@@ -10,4 +11,5 @@ export type Fixtures = {
   menuPage: MenuPage;
   orderPage: OrderPage;
   orderFormPage: OrderFormPage;
+  fastPizzaMocks: FastPizzaMocks;
 };

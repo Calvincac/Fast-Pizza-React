@@ -6,11 +6,11 @@ function Error() {
   console.log(error);
 
   return (
-    <div>
-      <h1>Something went wrong 😢</h1>
-      <p>{error.data || error.message}</p>
+    <div data-auto-id="error-section">
+      <h1 data-auto-id="general-error">Something went wrong 😢</h1>
+      <p data-auto-id="error-message">{error.data || error.message}</p>
 
-      <LinkButton to="-1">&larr; Go back</LinkButton>
+      <LinkButton  to="-1">&larr; Go back</LinkButton>
     </div>
   );
 }

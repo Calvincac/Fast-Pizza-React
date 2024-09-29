@@ -1,0 +1,32 @@
+{
+    "status": "success",
+    "data": {
+        "customer": "Calvin",
+        "status": "preparing",
+        "priority": true,
+        "cart": [
+            {
+                "pizzaId": 1,
+                "name": "Margherita",
+                "quantity": 1,
+                "unitPrice": 12,
+                "totalPrice": 12,
+                "addIngredients": [],
+                "removeIngredients": []
+            },
+            {
+                "pizzaId": 3,
+                "name": "Romana",
+                "quantity": 1,
+                "unitPrice": 15,
+                "totalPrice": 15,
+                "addIngredients": [],
+                "removeIngredients": []
+            }
+        ],
+        "id": "U5U53J",
+        "estimatedDelivery": "2024-09-15T13:35:25.165Z",
+        "orderPrice": 27,
+        "priorityPrice": 5
+    }
+}

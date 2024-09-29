@@ -2,50 +2,46 @@ import { Page, Locator } from '@playwright/test';
 
 export class CartPage {
   private page: Page;
-  private loggedInUsername: Locator;
-  private cartMessage: Locator;
-  private totalPrice: Locator;
-  private currentQuantity: Locator;
-  private cartQuantity: Locator;
-  private totalCartPrice: Locator;
-  private openCartButton: Locator;
+
+  private selectors = {
+    loggedInUsername: 'logged-in-username',
+    cartMessage: 'cart-message',
+    totalPrice: 'total-price',
+    currentQuantity: 'current-quantity',
+    cartQuantity: 'cart-quantity',
+    totalCartPrice: 'total-cart-price',
+    openCartButton: 'open-cart-button',
+  };
 
   constructor(page: Page) {
     this.page = page;
-    this.loggedInUsername = page.getByTestId('logged-in-username');
-    this.cartMessage = page.getByTestId('cart-message');
-    this.totalPrice = page.getByTestId('total-price');
-    this.currentQuantity = page.getByTestId('current-quantity');
-    this.cartQuantity = page.getByTestId('cart-quantity');
-    this.totalCartPrice = page.getByTestId('total-cart-price');
-    this.openCartButton = page.getByTestId('open-cart-button');
   }
 
-  async getLoggedInUsernameText(): Promise<string | null> {
-    return await this.loggedInUsername.textContent();
+  get loggedInUsername() {
+    return this.page.getByTestId(this.selectors.loggedInUsername);
   }
 
-  async getCartMessageText(): Promise<string | null> {
-    return await this.cartMessage.textContent();
+  get cartMessage() {
+    return this.page.getByTestId(this.selectors.cartMessage);
   }
 
-  async getTotalPriceText(): Promise<string | null> {
-    return await this.totalPrice.textContent();
+  get totalPrice() {
+    return this.page.getByTestId(this.selectors.totalPrice);
   }
 
-  async getCurrentQuantityText(): Promise<string | null> {
-    return await this.currentQuantity.textContent();
+  get currentQuantity() {
+    return this.page.getByTestId(this.selectors.currentQuantity);
   }
 
-  async getCartQuantityText(): Promise<string | null> {
-    return await this.cartQuantity.textContent();
+  get cartQuantity() {
+    return this.page.getByTestId(this.selectors.cartQuantity);
   }
 
-  async getTotalCartPriceText(): Promise<string | null> {
-    return await this.totalCartPrice.textContent();
+  get totalCartPrice() {
+    return this.page.getByTestId(this.selectors.totalCartPrice);
   }
 
-  async clickOpenCartButton(): Promise<void> {
-    await this.openCartButton.click();
+  get openCartButton() {
+    return this.page.getByTestId(this.selectors.openCartButton);
   }
 }

@@ -6,6 +6,7 @@ import { CartPage } from '../page-objects/CartPage';
 import { MenuPage } from '../page-objects/MenuPage';
 import { OrderPage } from '../page-objects/OrderPage';
 import { OrderFormPage } from '../page-objects/OrderFormPage';
+import FastPizzaMocks from '../mocks/FastPizzaMocks';
 
 export const test = baseTest.extend<Fixtures>({
   homePage: async ({ page }, use) => {
@@ -27,5 +28,9 @@ export const test = baseTest.extend<Fixtures>({
   orderFormPage: async ({ page }, use) => {
     const orderFormPage = new OrderFormPage(page);
     await use(orderFormPage);
+  },
+  fastPizzaMocks: async ({ page }, use) => {
+    const fastPizzaMocks = new FastPizzaMocks(page);
+    await use(fastPizzaMocks);
   },
 });
